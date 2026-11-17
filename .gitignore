@@ -1,0 +1,7 @@
+# se genera al ejecutar la oficina
+oficina.html
+*.tmp
+# datos personales de cada computadora
+limites.json
+avatares/
+__pycache__/

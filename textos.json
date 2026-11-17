@@ -1,0 +1,153 @@
+{
+  "titulo_pagina": "Oficina de agentes",
+  "cambiar_tema": "Cambiar entre modo claro y nocturno",
+  "estado": {
+    "trabajando": "Trabajando",
+    "pausa": "En pausa",
+    "bloqueado": "Bloqueado",
+    "libre": "Sin tarea",
+    "listo": "Listo",
+    "pendiente": "Pendiente"
+  },
+  "estado_fase": {
+    "listo": "Listo",
+    "trabajando": "En curso",
+    "pausa": "En pausa",
+    "bloqueado": "Bloqueado",
+    "pendiente": "Pendiente"
+  },
+  "estado_encargo": {
+    "trabajando": "en curso",
+    "pausa": "detenido sin terminar",
+    "libre": "terminado"
+  },
+  "contador": {
+    "aria": "Resumen de estados",
+    "trabajando": "{n} trabajando",
+    "pausa": "{n} en pausa",
+    "bloqueado_uno": "{n} bloqueado",
+    "bloqueado_varios": "{n} bloqueados",
+    "libre": "{n} sin tarea"
+  },
+  "agente": {
+    "sin_tarea_asignada": "Sin tarea asignada",
+    "sin_tarea": "Sin tarea",
+    "ultima": "Última:",
+    "desde": " · desde {fecha}",
+    "historial": "Historial",
+    "sin_historial": "Sin historial.",
+    "cerrar": "Cerrar",
+    "modulo_completo": "Módulo completo",
+    "sin_registro": "sin registro",
+    "pendiente": "pendiente",
+    "sin_ficha": "sin ficha",
+    "fuente_donde_quede": "{ficha} · Dónde quedé",
+    "fuente_tablero": "tablero"
+  },
+  "tiempo": {
+    "trabajando": "Trabajando hace ",
+    "pausa": "En pausa desde hace ",
+    "bloqueado": "Bloqueado desde hace ",
+    "libre": "Última tarea hace ",
+    "otro": "Hace ",
+    "menos_de_un_minuto": "menos de 1 min",
+    "dias": "{n} d",
+    "horas": "{n} h",
+    "minutos": "{n} min",
+    "sin_registros": "Sin registros en el tablero"
+  },
+  "tokens": {
+    "manual": "≈ {n} tokens",
+    "manual_tooltip": "Anotado a mano al generar",
+    "sesion": "contexto {contexto} · salida {salida}",
+    "sesion_tooltip": "Contexto de la última respuesta y total de salida, leídos de la sesión",
+    "historial": "contexto {contexto} · salida {salida} tokens"
+  },
+  "sesion": {
+    "esta_sesion": "Esta sesión",
+    "esperando_respuesta": "Esperando tu respuesta",
+    "prefijo_esperando": "Esperando tu respuesta hace ",
+    "prefijo_actividad": "Última actividad hace ",
+    "sin_encargos": "Sin encargos en esta sesión",
+    "inicio": "Inicio de la sesión «{titulo}»",
+    "subagentes_total": "{n} subagentes en total",
+    "fuente": "sesión de Claude Code",
+    "fuente_subagente": "subagente de esta sesión",
+    "nueva": "Sesión nueva",
+    "en_terminal": "en la terminal",
+    "en_vscode": "en VS Code",
+    "aviso": "Sesión de Claude Code · {n} subagentes · última actividad {hora}. Hongjoong es la conversación principal; cada escritorio, sus subagentes.",
+    "espera_pregunta": "«{titulo}»: Hongjoong te dejó una pregunta y necesita tu respuesta para seguir.",
+    "espera_plan": "«{titulo}»: Hongjoong espera que apruebes su plan para seguir.",
+    "espera_turno": "«{titulo}»: Hongjoong terminó lo que estaba haciendo y espera tu respuesta para seguir.",
+    "etapa_en_curso": "en curso en esta sesión",
+    "etapa_lista": "hecha en esta sesión",
+    "fase_en_curso": "en curso: {tarea}"
+  },
+  "menu": {
+    "viendo": "Viendo",
+    "sesiones_activas": "Sesiones activas · {n}",
+    "sin_sesiones": "Sin sesiones activas",
+    "una_sesion": "{n} sesión",
+    "varias_sesiones": "{n} sesiones",
+    "esperan_tooltip": "Sesiones esperando tu respuesta",
+    "elegir": "Elegir sesión",
+    "espera_tu_respuesta": "espera tu respuesta",
+    "trabajando": "{n} trabajando",
+    "sin_actividad": "sin actividad",
+    "sin_ficha": " · sin ficha",
+    "subagentes_tooltip": "{titulo} · {n} subagentes",
+    "tablero": "Tablero de la bitácora",
+    "tablero_detalle": "lo anotado en tablero.md"
+  },
+  "panel": {
+    "agentes": "Agentes",
+    "fases": "Fases del proceso",
+    "etapas": "Etapas del cambio",
+    "ficha": "Ficha:",
+    "sin_ficha": "Esta sesión no usa ninguna ficha de la bitácora.",
+    "esperando": "Esperando tu respuesta",
+    "nadie_espera": "Nadie está esperando tu respuesta.",
+    "anotado": "Anotado en la bitácora"
+  },
+  "sala": {
+    "aria": "Sala de la oficina",
+    "zona_aria": "Zona de {zona}",
+    "trabajando_ahora": "Trabajando ahora · {n}",
+    "burbuja": "Trabajando",
+    "plan_titulo": "PLAN DEL CAMBIO",
+    "sin_plan": "Sin plan por etapas",
+    "etapa": "Etapa {n}",
+    "aviso_mesa": "¡Esperando tu respuesta!",
+    "aviso_mesa_varios": "¡Esperando tu respuesta! · {n}",
+    "aviso_mesa_aria": "Mesa de decisiones: {n} pendientes",
+    "aviso_mesa_tooltip": "Hongjoong espera tu respuesta para avanzar",
+    "mesa": "Mesa de reuniones",
+    "mesa_con_pendientes": "Mesa de reuniones: {n} decisiones esperando su respuesta",
+    "ahora": "AHORA",
+    "personaje": "Personaje de bloques: {rol}"
+  },
+  "limites": {
+    "cinco_horas": "5 horas",
+    "semana": "Semana",
+    "se_reinicia": "se reinicia {cuando}",
+    "ya_se_reinicio": "ya se reinició",
+    "tooltip": "{nombre}: {pct}% usado · {reinicia}",
+    "viejo": "Dato de hace más de {min} min: la oficina lo consulta sola mientras está en vivo",
+    "actualizar": "Clic para actualizar ahora",
+    "actualizado": "actualizado a las {hora}",
+    "dias": [
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb",
+      "dom"
+    ]
+  },
+  "plan": {
+    "titulo": "Plan del cambio",
+    "abrir": "Ver el plan completo"
+  }
+}

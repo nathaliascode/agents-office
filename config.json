@@ -1,0 +1,221 @@
+{
+  "modulo": "mi_modulo",
+  "agentes": [
+    {
+      "clave": "hongjoong",
+      "nombre": "Hongjoong",
+      "rol": "Orchestrator",
+      "zona": "centro"
+    },
+    {
+      "clave": "jongho",
+      "nombre": "Jongho",
+      "rol": "Analyst",
+      "zona": "planificacion"
+    },
+    {
+      "clave": "yeosang",
+      "nombre": "Yeosang",
+      "rol": "Designer",
+      "zona": "planificacion"
+    },
+    {
+      "clave": "yunho",
+      "nombre": "Yunho",
+      "rol": "Developer",
+      "zona": "construccion"
+    },
+    {
+      "clave": "san",
+      "nombre": "San",
+      "rol": "Tester",
+      "zona": "construccion"
+    },
+    {
+      "clave": "seonghwa",
+      "nombre": "Seonghwa",
+      "rol": "Auditor",
+      "zona": "control"
+    },
+    {
+      "clave": "wooyoung",
+      "nombre": "Wooyoung",
+      "rol": "Reviewer",
+      "zona": "control"
+    },
+    {
+      "clave": "mingi",
+      "nombre": "Mingi",
+      "rol": "Documenter",
+      "zona": "control"
+    }
+  ],
+  "zonas": {
+    "centro": "Coordinación",
+    "planificacion": "Planificación",
+    "construccion": "Construcción",
+    "control": "Control"
+  },
+  "fases": [
+    {
+      "clave": "analisis",
+      "nombre": "Análisis",
+      "patron": "an[aá]lisis"
+    },
+    {
+      "clave": "diseno",
+      "nombre": "Diseño",
+      "patron": "dise[ñn]o"
+    },
+    {
+      "clave": "implementacion",
+      "nombre": "Implementación",
+      "patron": "implementaci[oó]n"
+    },
+    {
+      "clave": "pruebas",
+      "nombre": "Pruebas",
+      "patron": "prueba"
+    },
+    {
+      "clave": "seguridad",
+      "nombre": "Seguridad",
+      "patron": "seguridad"
+    },
+    {
+      "clave": "revision",
+      "nombre": "Revisión",
+      "patron": "revisi[oó]n"
+    },
+    {
+      "clave": "documentacion",
+      "nombre": "Documentación",
+      "patron": "documentaci[oó]n"
+    },
+    {
+      "clave": "entrega",
+      "nombre": "Entrega",
+      "patron": "entrega"
+    }
+  ],
+  "sala": {
+    "ancho_baldosas": 19,
+    "fondo_baldosas": 15,
+    "puestos": {
+      "hongjoong": [
+        3.0,
+        2.6
+      ],
+      "jongho": [
+        1.3,
+        7.8
+      ],
+      "yeosang": [
+        1.3,
+        11.8
+      ],
+      "yunho": [
+        8.8,
+        2.15
+      ],
+      "san": [
+        12.4,
+        2.15
+      ],
+      "seonghwa": [
+        16.3,
+        5.8
+      ],
+      "wooyoung": [
+        16.3,
+        9.0
+      ],
+      "mingi": [
+        16.3,
+        12.2
+      ]
+    },
+    "mesa_reuniones": [
+      8.0,
+      7.9,
+      13.6,
+      11.5
+    ],
+    "alfombras": {
+      "centro": [
+        1.6,
+        0.6,
+        6.4,
+        4.4,
+        "izq"
+      ],
+      "planificacion": [
+        0.5,
+        6.0,
+        4.6,
+        14.6,
+        "izq"
+      ],
+      "construccion": [
+        7.6,
+        0.6,
+        15.6,
+        4.0,
+        "izq"
+      ],
+      "control": [
+        15.4,
+        4.6,
+        18.8,
+        14.6,
+        "der"
+      ]
+    }
+  },
+  "umbrales": {
+    "sesion_activa_minutos": 30,
+    "coordinador_activo_minutos": 5,
+    "subagente_detenido_horas": 3,
+    "tokens_alto": 400000,
+    "limite_ambar_porcentaje": 70,
+    "limite_rojo_porcentaje": 90,
+    "limite_viejo_minutos": 30,
+    "limites_consulta_minutos": 2
+  },
+  "tildes_en_titulos": {
+    "bitacora": "bitácora",
+    "modulo": "módulo",
+    "modulos": "módulos",
+    "migracion": "migración",
+    "configuracion": "configuración",
+    "facturacion": "facturación",
+    "traduccion": "traducción",
+    "revision": "revisión",
+    "actualizacion": "actualización",
+    "sesion": "sesión",
+    "analisis": "análisis",
+    "diseno": "diseño",
+    "pagina": "página",
+    "codigo": "código",
+    "catalogo": "catálogo",
+    "informacion": "información",
+    "documentacion": "documentación",
+    "implementacion": "implementación",
+    "integracion": "integración",
+    "validacion": "validación",
+    "neutralizacion": "neutralización",
+    "correccion": "corrección",
+    "creacion": "creación",
+    "funcion": "función",
+    "version": "versión"
+  },
+  "fase_de_rol": {
+    "Analyst": "analisis",
+    "Designer": "diseno",
+    "Developer": "implementacion",
+    "Tester": "pruebas",
+    "Auditor": "seguridad",
+    "Reviewer": "revision",
+    "Documenter": "documentacion"
+  }
+}
