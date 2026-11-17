@@ -1,55 +1,56 @@
-# Oficina de agentes
+# Agents office
 
-Una oficina isométrica de pixel art, en el navegador, para ver qué hacen los
-agentes de Claude Code mientras desarrollan un proyecto: quién está trabajando,
-en qué etapa va el plan, quién espera tu respuesta y cuánto te queda de tus
-límites de uso. Disponible en español, inglés y alemán. Es Python puro, sin
-dependencias; corre en tu computadora y no publica nada.
+**English** · [Español](README.es.md) · [Deutsch](README.de.md)
 
-## Qué muestra
+An isometric pixel-art office in your browser that shows what your Claude Code
+agents are doing while they build a project: who is working, which stage the
+plan is at, who is waiting for your reply and how much of your usage limits is
+left. Available in Spanish, English and German. Plain Python with no
+dependencies; it runs on your computer and publishes nothing.
 
-- **La sala:** un escritorio por agente. Quien está trabajando aparece sentado en
-  su escritorio, con la pantalla encendida y un globo «Trabajando…». Los demás
-  se sientan en la mesa de reuniones; al cambiar de estado, caminan de un lugar
-  al otro.
-- **Las paredes:** las 8 fases del proceso (Análisis, Diseño, Implementación,
-  Pruebas, Seguridad, Revisión, Documentación, Entrega), con la fase actual
-  resaltada, y el **plan del cambio** por etapas. Un clic en el plan lo abre
-  completo.
-- **Esperando tu respuesta:** un globo que rebota sobre la mesa cuando el
-  coordinador está parado esperando que le contestes.
-- **Sesiones:** un menú para elegir entre las sesiones activas de Claude Code.
-  Cada sesión muestra sus propios agentes, su plan y sus fases.
-- **Límites de uso:** la ventana de 5 horas y la semanal, con la hora en que se
-  reinicia cada una.
-- **Ficha de cada agente:** al hacer clic, su estado, tarea, tiempo, tokens e
-  historial.
-- **Idiomas:** selector ES / EN / DE en la barra; se recuerda entre visitas.
-- Modo claro y nocturno, y vista para celular.
+## What it shows
 
-## Cómo funciona
+- **The room:** one desk per agent. Whoever is working sits at their desk, with
+  the screen on and a «Working…» bubble. The others sit at the meeting table;
+  when their status changes, they walk from one place to the other.
+- **The walls:** the 8 process phases (Analysis, Design, Implementation,
+  Testing, Security, Review, Documentation, Delivery), with the current phase
+  highlighted, and the **change plan** by stages. Click the plan to open it in
+  full.
+- **Waiting for your reply:** a bubble that bounces over the table when the
+  coordinator has stopped and needs you to answer.
+- **Sessions:** a menu to switch between your active Claude Code sessions. Each
+  session shows its own agents, plan and phases.
+- **Usage limits:** the 5-hour window and the weekly limit, with the time each
+  one resets.
+- **Agent card:** click an agent to see their status, task, time, tokens and
+  history.
+- **Languages:** ES / EN / DE switch in the top bar; your choice is remembered.
+- Light and dark mode, and a phone layout.
 
-`office.py` lee la bitácora del proyecto (tablero y ficha del módulo), los
-metadatos de las sesiones de Claude Code y los límites de uso, y arma una página
-HTML autocontenida por idioma. En modo en vivo la sirve en `localhost` y la
-actualiza sin recargar cuando algo cambia.
+## How it works
 
-### Modelo de datos
+`office.py` reads the project log (task board and the module's plan file), the
+metadata of your Claude Code sessions and your usage limits, and builds one
+self-contained HTML page per language. In live mode it serves the page on
+`localhost` and updates it without reloading whenever something changes.
+
+### Data model
 
 ```mermaid
 erDiagram
-    CONFIG ||--o{ AGENT_DEF : define
-    BOARD ||--o{ BOARD_ROW : contiene
-    BOARD_ROW }o--|| AGENT : "asignada a"
-    PLAN_FILE ||--o{ STAGE : "plan por etapas"
-    PLAN_FILE ||--o{ LOG_ENTRY : "dónde quedé"
-    OFFICE_STATE ||--o{ AGENT : muestra
-    OFFICE_STATE ||--o{ PHASE : muestra
-    OFFICE_STATE ||--o{ STAGE : muestra
-    SESSION ||--o{ ASSIGNMENT : lanza
-    ASSIGNMENT }o--|| AGENT : "es de"
-    SESSION ||--o| OFFICE_STATE : "su vista"
-    USAGE ||--o| USAGE_WINDOW : "5 horas y semana"
+    CONFIG ||--o{ AGENT_DEF : defines
+    BOARD ||--o{ BOARD_ROW : contains
+    BOARD_ROW }o--|| AGENT : "assigned to"
+    PLAN_FILE ||--o{ STAGE : "staged plan"
+    PLAN_FILE ||--o{ LOG_ENTRY : "where we left off"
+    OFFICE_STATE ||--o{ AGENT : shows
+    OFFICE_STATE ||--o{ PHASE : shows
+    OFFICE_STATE ||--o{ STAGE : shows
+    SESSION ||--o{ ASSIGNMENT : launches
+    ASSIGNMENT }o--|| AGENT : "belongs to"
+    SESSION ||--o| OFFICE_STATE : "its view"
+    USAGE ||--o| USAGE_WINDOW : "5 hours and week"
 
     AGENT {
         string key
@@ -87,225 +88,225 @@ erDiagram
     }
 ```
 
-### Secuencia (modo en vivo)
+### Sequence (live mode)
 
 ```mermaid
 sequenceDiagram
-    actor U as Usuaria
+    actor U as User
     participant O as office.py
-    participant B as Bitácora (tablero y fichas)
+    participant B as Project log (board and plan files)
     participant C as Claude Code
-    participant N as Navegador
+    participant N as Browser
 
     U->>O: python3 office.py --watch 10
-    O->>B: lee tablero.md y planes/*.md
-    O->>C: lee metadatos de sesiones (~/.claude/projects)
-    O->>C: claude -p /usage (cada 2 min)
-    C-->>O: % de 5 horas y semana
-    O->>N: abre http://localhost:8765
-    loop cada pocos segundos
+    O->>B: reads tablero.md and planes/*.md
+    O->>C: reads session metadata (~/.claude/projects)
+    O->>C: claude -p /usage (every 2 min)
+    C-->>O: % of the 5 hours and the week
+    O->>N: opens http://localhost:8765
+    loop every few seconds
         N->>O: GET /version
-        alt algo cambió
-            O-->>N: versión nueva
-            N->>O: GET /?lang=es
-            O-->>N: página nueva
-            N->>N: reemplaza el contenido y anima los cambios
-        else sin cambios
-            O-->>N: misma versión
+        alt something changed
+            O-->>N: new version
+            N->>O: GET /?lang=en
+            O-->>N: new page
+            N->>N: replaces the content and animates the changes
+        else no changes
+            O-->>N: same version
         end
     end
 ```
 
-### Flujo: estado de un agente
+### Flow: status of an agent
 
 ```mermaid
 flowchart TD
-    A[Agente] --> V{¿Qué vista?}
-    V -->|Tablero de la bitácora| T[Fila más reciente del agente en tablero.md]
-    V -->|Sesión de Claude Code| S[Subagentes del agente en esa sesión]
-    T --> E{Estado escrito}
-    S --> F{¿Terminó su encargo?}
-    F -->|No, con actividad reciente| W[working]
-    F -->|No, sin actividad hace horas| P[paused]
-    F -->|Sí| L[idle]
+    A[Agent] --> V{Which view?}
+    V -->|Project task board| T[Agent's newest row in tablero.md]
+    V -->|Claude Code session| S[The agent's subagents in that session]
+    T --> E{Written status}
+    S --> F{Assignment finished?}
+    F -->|No, recent activity| W[working]
+    F -->|No, no activity for hours| P[paused]
+    F -->|Yes| L[idle]
     E -->|en curso| W
     E -->|bloqueado| X[blocked]
-    E -->|pausado o diferida| P
+    E -->|pausado or diferida| P
     E -->|listo| L
-    W --> D[Sentado en su escritorio con globo «Trabajando…»]
-    X --> M[Sentado en la mesa de reuniones]
+    W --> D[At their desk with the «Working…» bubble]
+    X --> M[At the meeting table]
     P --> M
     L --> M
 ```
 
-## Manual de uso
+## User guide
 
-### Requisitos
+### Requirements
 
-- Python 3.10 o más nuevo.
-- Para las sesiones y los límites: Claude Code instalado (el comando `claude`
-  funciona en la terminal) y con tu cuenta iniciada. Sin eso, la oficina
-  funciona igual, solo que sin esas dos partes.
+- Python 3.10 or newer.
+- For sessions and usage limits: Claude Code installed (the `claude` command
+  works in a terminal) and signed in. Without it the office still works, just
+  without those two parts.
 
-### Probarla
+### Try it
 
-Desde la carpeta del repo:
+From the repo folder:
 
 ```bash
 python3 office.py --watch 10
 ```
 
-Se abre una ventana del navegador en `http://localhost:8765`. Si no hay una
-bitácora al lado, usa los datos de la carpeta `example/`. Para apagarla,
-presiona **Ctrl+C**.
+A browser window opens at `http://localhost:8765`. If there is no project log
+next to it, it uses the data in `example/`. Press **Ctrl+C** to stop it.
 
-- `--watch 10`: modo en vivo. Revisa cambios cada 10 segundos y actualiza la
-  página sin recargarla (sala, panel y medidores de límites). Si cambia el
-  código, la configuración o un idioma, el servidor se reinicia solo y la
-  ventana abierta se recarga sola.
-- Sin `--watch`: genera `office.html` (idioma por defecto), `office.en.html` y
-  `office.de.html`, y abre el primero.
+- `--watch 10`: live mode. Checks for changes every 10 seconds and updates the
+  page without reloading it (room, panel and usage meters). If the code, the
+  configuration or a language file changes, the server restarts by itself and
+  the open window reloads by itself.
+- Without `--watch`: writes `office.html` (default language), `office.en.html`
+  and `office.de.html`, and opens the first one.
 
-El servidor escucha solo en tu computadora (`127.0.0.1`). Si el puerto está
-ocupado, usa `--port 8766`.
+The server only listens on your computer (`127.0.0.1`). If the port is busy,
+use `--port 8766`.
 
-### Usarla con tu proyecto
+### Use it with your project
 
-La oficina lee dos archivos Markdown, que normalmente llena el agente
-coordinador mientras trabaja:
+The office reads two Markdown files, which the coordinator agent usually fills
+in while it works:
 
 ```text
 bitacora/
 ├── tablero.md
 ├── planes/
-│   └── <modulo>.md
-└── oficina/          ← este repo
+│   └── <module>.md
+└── oficina/          ← this repo
 ```
 
-Si pones el repo dentro de la carpeta de la bitácora como en el dibujo, los
-encuentra solo. Si no, indícale dónde están:
+If you put the repo inside the log folder as shown, it finds them by itself.
+Otherwise, tell it where they are:
 
 ```bash
-python3 office.py --watch 10 --board ruta/tablero.md --plans ruta/planes --module mi_modulo
+python3 office.py --watch 10 --board path/tablero.md --plans path/planes --module my_module
 ```
 
-#### El tablero (`tablero.md`)
+#### The task board (`tablero.md`)
 
-Una tabla con una fila por tarea:
+A table with one row per task. The log format is in Spanish, so the column
+names and statuses are Spanish:
 
 ```markdown
 | Tarea | Etapa | Agente | Estado | Actualizado | Nota |
 |---|---|---|---|---|---|
-| mi_modulo: Etapa 2 (reporte mensual) | Implementación | Yunho Developer | en curso | 2026-11-17 09:30 |  |
-| mi_modulo | Seguridad | Seonghwa Auditor | bloqueado | 2026-11-16 17:00 | falta una base de pruebas |
+| my_module: Etapa 2 (monthly report) | Implementación | Yunho Developer | en curso | 2026-11-17 09:30 |  |
+| my_module | Seguridad | Seonghwa Auditor | bloqueado | 2026-11-16 17:00 | no test database yet |
 ```
 
-- **Tarea:** empieza con el nombre del módulo (`mi_modulo` o `mi_modulo: …`).
-  Si dice «Etapa N», cuenta para la etapa N del plan.
-- **Agente:** basta con que contenga el nombre del agente.
-- **Estado:** `en curso` = trabajando, `bloqueado` = bloqueado,
-  `pausado` o `diferida` = en pausa, `listo` = sin tarea.
-- **Actualizado:** para cada agente vale su fila más reciente.
-- **Etapa:** marca en qué fase del proceso va el módulo.
-- **Nota:** aparece en la ficha del agente.
+- **Tarea** (task): starts with the module name (`my_module` or
+  `my_module: …`). If it says «Etapa N», it counts for stage N of the plan.
+- **Agente** (agent): it is enough that it contains the agent's name.
+- **Estado** (status): `en curso` = working, `bloqueado` = blocked,
+  `pausado` or `diferida` = on hold, `listo` = no task.
+- **Actualizado** (updated): for each agent, its newest row counts.
+- **Etapa** (stage): marks which process phase the module is in.
+- **Nota** (note): shown in the agent card.
 
-La bitácora se escribe en español; las palabras que la oficina busca en ella
-están todas en `office/board.py`.
+Every word the office looks for in the log lives in `office/board.py`.
 
-#### La ficha del módulo (`planes/<modulo>.md`)
+#### The plan file (`planes/<module>.md`)
 
-Tres secciones, todas opcionales:
+Three sections, all optional:
 
-- `## Dónde quedé`: entradas `**AAAA-MM-DD (Agente) — qué hizo**`, que se suman
-  al historial de cada agente.
-- `## Avance por fase`: tabla `| Fase | Estado | Fecha | Agente |` para las
-  fases de la pared.
-- `## Plan por etapas`: una línea `Etapas: 1 descripción; 2 descripción; …`,
-  que es el plan que se ve en la pared.
+- `## Dónde quedé` (where we left off): entries
+  `**YYYY-MM-DD (Agent) — what was done**`, added to each agent's history.
+- `## Avance por fase` (progress by phase): table
+  `| Fase | Estado | Fecha | Agente |` for the phases on the wall.
+- `## Plan por etapas` (staged plan): one line
+  `Etapas: 1 description; 2 description; …`, which is the plan shown on the
+  wall.
 
-Hay un ejemplo completo en `example/`.
+There is a complete example in `example/`.
 
-### Idiomas
+### Languages
 
-Los textos de la interfaz están en `i18n/es.json`, `i18n/en.json` y
-`i18n/de.json`, con las mismas claves. El idioma por defecto y la lista de
-idiomas se eligen en `config.json` (`language`, `languages`). Para agregar uno,
-copia un archivo, tradúcelo y súmalo a `languages`. Respeta las marcas entre
-llaves, como `{n}` o `{title}`: ahí va el dato. Los datos del proyecto (tareas,
-notas, títulos de sesiones) no se traducen.
+The interface texts live in `i18n/es.json`, `i18n/en.json` and `i18n/de.json`,
+with the same keys. The default language and the list of languages are set in
+`config.json` (`language`, `languages`). To add one, copy a file, translate it
+and add it to `languages`. Keep the placeholders in braces, such as `{n}` or
+`{title}`: that is where the data goes. Project data (tasks, notes, session
+titles) is not translated.
 
-### Personalizar
+### Customise
 
-- **`config.json`:** módulo por defecto, coordinador, agentes (clave, nombre,
-  rol y zona), fases y cómo reconocerlas en la bitácora, ubicación de
-  escritorios, mesa y alfombras en la sala, y umbrales (minutos para que una
-  sesión cuente como activa, porcentajes de ámbar y rojo de los límites, cada
-  cuánto se consultan…).
-- **Avatares:** pon `avatars/<clave>.png` (la `key` de cada agente). Si falta
-  alguno, se usa un personaje de pixel art dibujado por el script. La carpeta
-  `avatars/` está en `.gitignore` para que tus imágenes no se suban.
+- **`config.json`:** default module, coordinator, agents (key, name, role and
+  zone), phases and how to recognise them in the log, position of desks, table
+  and rugs in the room, and thresholds (minutes for a session to count as
+  active, amber and red percentages for the limits, how often they are
+  checked…).
+- **Avatars:** put `avatars/<key>.png` (each agent's `key`). If one is missing,
+  a pixel-art character drawn by the script is used. The `avatars/` folder is
+  in `.gitignore` so your images are not uploaded.
 
-### Opciones
+### Options
 
-| Opción | Para qué |
+| Option | Purpose |
 |---|---|
-| `--watch SEGUNDOS` | Modo en vivo: servidor local y revisión de cambios cada tantos segundos. |
-| `--port N` | Puerto del servidor (por defecto 8765). |
-| `--module NOMBRE` | Módulo a mostrar. |
-| `--board RUTA` / `--plans RUTA` | Dónde están el tablero y las fichas. |
-| `--sessions RUTA` | Carpeta de sesiones de Claude Code; `""` para no usarlas. |
-| `--avatars RUTA` | Carpeta de avatares; `""` para usar solo los dibujados. |
-| `--tokens nombre=N` | Tokens anotados a mano para un agente (se puede repetir). |
-| `--no-usage` | No consultar los límites de uso. |
-| `--no-open` | No abrir la ventana del navegador. |
-| `--output RUTA` | Dónde escribir la página generada. |
+| `--watch SECONDS` | Live mode: local server, checking for changes every so many seconds. |
+| `--port N` | Server port (default 8765). |
+| `--module NAME` | Module to show. |
+| `--board PATH` / `--plans PATH` | Where the task board and the plan files are. |
+| `--sessions PATH` | Claude Code sessions folder; `""` to skip sessions. |
+| `--avatars PATH` | Avatars folder; `""` to use only the drawn characters. |
+| `--tokens name=N` | Tokens written by hand for an agent (repeatable). |
+| `--no-usage` | Do not check the usage limits. |
+| `--no-open` | Do not open a browser window. |
+| `--output PATH` | Where to write the generated page. |
 
-## Estructura del código
+## Code structure
 
 ```text
-office.py                punto de entrada (opciones de la línea de comandos)
+office.py                entry point (command-line options)
 office/
-├── config.py            configuración, rutas y versión del programa
-├── models.py            estructuras de datos (dataclasses)
-├── board.py             lectura del tablero y las fichas (formato de la bitácora)
-├── state.py             qué muestra la oficina, y el trabajo en vivo de una sesión
-├── sessions.py          sesiones de Claude Code: solo metadatos
-├── usage.py             límites de uso con /usage
-├── i18n.py              textos traducidos
-├── build.py             lee todo y escribe una página por idioma
-├── server.py            modo en vivo
+├── config.py            configuration, paths and program version
+├── models.py            data structures (dataclasses)
+├── board.py             reads the task board and plan files (log format)
+├── state.py             what the office shows, and live session work
+├── sessions.py          Claude Code sessions: metadata only
+├── usage.py             usage limits through /usage
+├── i18n.py              translated texts
+├── build.py             reads everything and writes one page per language
+├── server.py            live mode
 ├── render/
-│   ├── geometry.py      proyección isométrica y formas
-│   ├── pixel.py         pixel art: personajes y adornos
-│   ├── room.py          la sala: paredes, escritorios, mesa
-│   ├── panel.py         panel lateral, menú, modales, límites
-│   ├── labels.py        fechas, números y estados según el idioma
-│   └── page.py          arma la página completa
+│   ├── geometry.py      isometric projection and shapes
+│   ├── pixel.py         pixel art: characters and decorations
+│   ├── room.py          the room: walls, desks, table
+│   ├── panel.py         side panel, menu, modals, usage meters
+│   ├── labels.py        dates, numbers and statuses per language
+│   └── page.py          assembles the whole page
 └── static/
     ├── office.css
     └── office.js
 i18n/es.json, en.json, de.json
 config.json
-example/                 tablero y ficha de ejemplo
+example/                 example task board and plan file
 ```
 
-**Nomenclatura:** código en inglés. Python sigue PEP 8 (`snake_case` para
-funciones y variables, `UPPER_CASE` para constantes, `CapWords` para clases) con
-tipos anotados; claves JSON en `snake_case`; clases CSS en `kebab-case`;
-JavaScript en `camelCase`. El estilo se revisa con `black` y `ruff`
-(configurados en `pyproject.toml`).
+**Naming:** code in English. Python follows PEP 8 (`snake_case` for functions
+and variables, `UPPER_CASE` for constants, `CapWords` for classes) with type
+hints; JSON keys in `snake_case`; CSS classes in `kebab-case`; JavaScript in
+`camelCase`. Style is checked with `black` and `ruff` (configured in
+`pyproject.toml`).
 
-## Privacidad
+## Privacy
 
-- De las sesiones de Claude Code solo se leen metadatos: título, horas, encargo
-  de cada subagente, si terminó, qué herramienta usó y los tokens. Nunca el
-  texto de las conversaciones.
-- Los límites se consultan con el comando `/usage` de Claude Code, que no
-  consume tokens ni guarda una sesión. El resultado queda en `usage.json`, que
-  no se sube al repo.
-- Las páginas generadas (`office*.html`) llevan los datos de tu proyecto:
-  tampoco se suben.
+- Only metadata is read from Claude Code sessions: title, times, each
+  subagent's assignment, whether it finished, which tool it used and the
+  tokens. Never the text of the conversations.
+- Usage limits are checked with Claude Code's `/usage` command, which uses no
+  tokens and saves no session. The result is stored in `usage.json`, which is
+  not uploaded to the repo.
+- The generated pages (`office*.html`) contain your project data: they are not
+  uploaded either.
 
-## Licencia
+## License
 
-MIT. Ver `LICENSE`.
+MIT. See `LICENSE`.
