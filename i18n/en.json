@@ -1,0 +1,181 @@
+{
+  "title": "Agents office",
+  "theme": "Switch between light and dark mode",
+  "language": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "number": {
+    "decimal": ".",
+    "thousands": ","
+  },
+  "status": {
+    "working": "Working",
+    "paused": "On hold",
+    "blocked": "Blocked",
+    "idle": "No task"
+  },
+  "phase_status": {
+    "done": "Done",
+    "working": "In progress",
+    "paused": "On hold",
+    "blocked": "Blocked",
+    "pending": "Pending"
+  },
+  "assignment": {
+    "working": "in progress",
+    "paused": "stopped before finishing",
+    "idle": "finished"
+  },
+  "counter": {
+    "aria": "Status summary",
+    "working": "{n} working",
+    "paused": "{n} on hold",
+    "blocked_one": "{n} blocked",
+    "blocked_many": "{n} blocked",
+    "idle": "{n} with no task"
+  },
+  "agent": {
+    "no_task_assigned": "No task assigned",
+    "no_task": "No task",
+    "last": "Last:",
+    "since": " · since {date}",
+    "history": "History",
+    "no_history": "No history yet.",
+    "close": "Close",
+    "whole_module": "Whole module",
+    "no_record": "no record",
+    "pending": "pending"
+  },
+  "source": {
+    "board": "task board",
+    "session": "Claude Code session",
+    "subagent": "subagent of this session",
+    "log": "{file} · where we left off",
+    "board_agent": "task board · {agent}"
+  },
+  "time": {
+    "working": "Working for {d}",
+    "paused": "On hold for {d}",
+    "blocked": "Blocked for {d}",
+    "idle": "Last task {d} ago",
+    "other": "{d} ago",
+    "under_a_minute": "less than 1 min",
+    "days": "{n} d",
+    "hours": "{n} h",
+    "minutes": "{n} min",
+    "no_records": "No entries on the task board"
+  },
+  "time_prefix": {
+    "waiting": "Waiting for your reply for {d}",
+    "activity": "Last activity {d} ago"
+  },
+  "tokens": {
+    "manual": "≈ {n} tokens",
+    "manual_tooltip": "Written by hand when the page was generated",
+    "session": "context {context} · output {output}",
+    "session_tooltip": "Context of the last reply and total output, read from the session",
+    "history": "context {context} · output {output} tokens"
+  },
+  "session": {
+    "this_session": "This session",
+    "waiting_reply": "Waiting for your reply",
+    "no_assignments": "No assignments in this session",
+    "start": "Start of the session “{title}”",
+    "subagents_total": "{n} subagents in total",
+    "new": "New session",
+    "in_terminal": "in the terminal",
+    "in_vscode": "in VS Code",
+    "notice": "Claude Code session · {n} subagents · last activity {time}. {coordinator} is the main conversation; each desk shows its own subagents.",
+    "waiting_question": "“{title}”: {coordinator} left you a question and needs your answer to go on.",
+    "waiting_plan": "“{title}”: {coordinator} is waiting for you to approve the plan before going on.",
+    "waiting_turn": "“{title}”: {coordinator} has finished the current work and needs your reply to go on.",
+    "stage_in_progress": "in progress in this session",
+    "stage_done": "done in this session",
+    "phase_in_progress": "in progress: {task}"
+  },
+  "menu": {
+    "viewing": "Viewing",
+    "active_sessions": "Active sessions · {n}",
+    "no_sessions": "No active sessions",
+    "one_session": "{n} session",
+    "many_sessions": "{n} sessions",
+    "waiting_tooltip": "Sessions waiting for your reply",
+    "choose": "Choose a session",
+    "waiting_reply": "waiting for your reply",
+    "working": "{n} working",
+    "no_activity": "no activity",
+    "no_plan_file": " · no plan file",
+    "subagents_tooltip": "{title} · {n} subagents",
+    "board": "Project task board",
+    "board_detail": "what is written in tablero.md"
+  },
+  "panel": {
+    "agents": "Agents",
+    "phases": "Process phases",
+    "stages": "Change stages",
+    "plan_file": "Plan file:",
+    "no_plan_file": "This session does not use any plan file from the log.",
+    "waiting": "Waiting for your reply",
+    "nobody_waiting": "Nobody is waiting for your reply.",
+    "logged": "Written in the log"
+  },
+  "room": {
+    "aria": "Office room",
+    "working_now": "Working now · {n}",
+    "bubble": "Working",
+    "plan_title": "CHANGE PLAN",
+    "no_plan": "No staged plan",
+    "stage": "Stage {n}",
+    "stage_short": "S{n}",
+    "waiting": "Waiting for your reply!",
+    "waiting_many": "Waiting for your reply! · {n}",
+    "waiting_aria": "Decisions table: {n} pending",
+    "waiting_tooltip": "{coordinator} needs your reply to move on",
+    "table": "Meeting table",
+    "table_waiting": "Meeting table: {n} decisions waiting for your reply",
+    "now": "NOW",
+    "character": "Pixel character: {role}"
+  },
+  "plan": {
+    "title": "Change plan",
+    "open": "See the whole plan"
+  },
+  "usage": {
+    "five_hour": "5 hours",
+    "week": "Week",
+    "resets": "resets {when}",
+    "already_reset": "already reset",
+    "tooltip": "{name}: {pct}% used · {resets}",
+    "stale": "Data older than {min} min: the office checks again by itself while it is live",
+    "refresh": "Click to update now",
+    "updated": "updated at {time}",
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ]
+  },
+  "zones": {
+    "coordination": "Coordination",
+    "planning": "Planning",
+    "building": "Development",
+    "control": "Control"
+  },
+  "phases": {
+    "analysis": "Analysis",
+    "design": "Design",
+    "implementation": "Implementation",
+    "testing": "Testing",
+    "security": "Security",
+    "review": "Review",
+    "documentation": "Documentation",
+    "delivery": "Delivery"
+  }
+}

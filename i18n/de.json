@@ -1,0 +1,181 @@
+{
+  "title": "Agentenbüro",
+  "theme": "Zwischen hellem und dunklem Modus wechseln",
+  "language": {
+    "label": "Sprache",
+    "es": "Español",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "number": {
+    "decimal": ",",
+    "thousands": "."
+  },
+  "status": {
+    "working": "Arbeitet",
+    "paused": "Pausiert",
+    "blocked": "Blockiert",
+    "idle": "Ohne Aufgabe"
+  },
+  "phase_status": {
+    "done": "Erledigt",
+    "working": "In Arbeit",
+    "paused": "Pausiert",
+    "blocked": "Blockiert",
+    "pending": "Offen"
+  },
+  "assignment": {
+    "working": "in Arbeit",
+    "paused": "vor dem Abschluss angehalten",
+    "idle": "abgeschlossen"
+  },
+  "counter": {
+    "aria": "Statusübersicht",
+    "working": "{n} in Arbeit",
+    "paused": "{n} pausiert",
+    "blocked_one": "{n} blockiert",
+    "blocked_many": "{n} blockiert",
+    "idle": "{n} ohne Aufgabe"
+  },
+  "agent": {
+    "no_task_assigned": "Keine Aufgabe zugewiesen",
+    "no_task": "Keine Aufgabe",
+    "last": "Zuletzt:",
+    "since": " · seit {date}",
+    "history": "Verlauf",
+    "no_history": "Noch kein Verlauf.",
+    "close": "Schließen",
+    "whole_module": "Gesamtes Modul",
+    "no_record": "kein Eintrag",
+    "pending": "offen"
+  },
+  "source": {
+    "board": "Aufgabenboard",
+    "session": "Claude-Code-Sitzung",
+    "subagent": "Subagent dieser Sitzung",
+    "log": "{file} · aktueller Stand",
+    "board_agent": "Aufgabenboard · {agent}"
+  },
+  "time": {
+    "working": "Arbeitet seit {d}",
+    "paused": "Pausiert seit {d}",
+    "blocked": "Blockiert seit {d}",
+    "idle": "Letzte Aufgabe vor {d}",
+    "other": "Vor {d}",
+    "under_a_minute": "weniger als 1 Min.",
+    "days": "{n} T.",
+    "hours": "{n} Std.",
+    "minutes": "{n} Min.",
+    "no_records": "Keine Einträge im Aufgabenboard"
+  },
+  "time_prefix": {
+    "waiting": "Wartet seit {d} auf deine Antwort",
+    "activity": "Letzte Aktivität vor {d}"
+  },
+  "tokens": {
+    "manual": "≈ {n} Tokens",
+    "manual_tooltip": "Beim Erzeugen der Seite von Hand eingetragen",
+    "session": "Kontext {context} · Ausgabe {output}",
+    "session_tooltip": "Kontext der letzten Antwort und gesamte Ausgabe, aus der Sitzung gelesen",
+    "history": "Kontext {context} · Ausgabe {output} Tokens"
+  },
+  "session": {
+    "this_session": "Diese Sitzung",
+    "waiting_reply": "Wartet auf deine Antwort",
+    "no_assignments": "Keine Aufträge in dieser Sitzung",
+    "start": "Beginn der Sitzung „{title}“",
+    "subagents_total": "{n} Subagenten insgesamt",
+    "new": "Neue Sitzung",
+    "in_terminal": "im Terminal",
+    "in_vscode": "in VS Code",
+    "notice": "Claude-Code-Sitzung · {n} Subagenten · letzte Aktivität {time}. {coordinator} ist das Hauptgespräch; jeder Schreibtisch zeigt seine Subagenten.",
+    "waiting_question": "„{title}“: {coordinator} hat dir eine Frage gestellt und braucht deine Antwort, um weiterzumachen.",
+    "waiting_plan": "„{title}“: {coordinator} wartet darauf, dass du den Plan freigibst.",
+    "waiting_turn": "„{title}“: {coordinator} ist mit der aktuellen Arbeit fertig und braucht deine Antwort, um weiterzumachen.",
+    "stage_in_progress": "in dieser Sitzung in Arbeit",
+    "stage_done": "in dieser Sitzung erledigt",
+    "phase_in_progress": "in Arbeit: {task}"
+  },
+  "menu": {
+    "viewing": "Ansicht",
+    "active_sessions": "Aktive Sitzungen · {n}",
+    "no_sessions": "Keine aktiven Sitzungen",
+    "one_session": "{n} Sitzung",
+    "many_sessions": "{n} Sitzungen",
+    "waiting_tooltip": "Sitzungen, die auf deine Antwort warten",
+    "choose": "Sitzung wählen",
+    "waiting_reply": "wartet auf deine Antwort",
+    "working": "{n} in Arbeit",
+    "no_activity": "keine Aktivität",
+    "no_plan_file": " · keine Plandatei",
+    "subagents_tooltip": "{title} · {n} Subagenten",
+    "board": "Aufgabenboard des Projekts",
+    "board_detail": "Einträge aus tablero.md"
+  },
+  "panel": {
+    "agents": "Agenten",
+    "phases": "Prozessphasen",
+    "stages": "Etappen der Änderung",
+    "plan_file": "Plandatei:",
+    "no_plan_file": "Diese Sitzung nutzt keine Plandatei aus dem Projektlog.",
+    "waiting": "Wartet auf deine Antwort",
+    "nobody_waiting": "Niemand wartet auf deine Antwort.",
+    "logged": "Im Projektlog vermerkt"
+  },
+  "room": {
+    "aria": "Büroraum",
+    "working_now": "Gerade in Arbeit · {n}",
+    "bubble": "Arbeitet",
+    "plan_title": "ÄNDERUNGSPLAN",
+    "no_plan": "Kein Etappenplan",
+    "stage": "Etappe {n}",
+    "stage_short": "E{n}",
+    "waiting": "Wartet auf deine Antwort!",
+    "waiting_many": "Wartet auf deine Antwort! · {n}",
+    "waiting_aria": "Entscheidungstisch: {n} offen",
+    "waiting_tooltip": "{coordinator} braucht deine Antwort, um weiterzumachen",
+    "table": "Besprechungstisch",
+    "table_waiting": "Besprechungstisch: {n} Entscheidungen warten auf deine Antwort",
+    "now": "JETZT",
+    "character": "Pixel-Figur: {role}"
+  },
+  "plan": {
+    "title": "Änderungsplan",
+    "open": "Ganzen Plan ansehen"
+  },
+  "usage": {
+    "five_hour": "5 Stunden",
+    "week": "Woche",
+    "resets": "Reset {when}",
+    "already_reset": "bereits zurückgesetzt",
+    "tooltip": "{name}: {pct} % verbraucht · {resets}",
+    "stale": "Daten älter als {min} Min. – im Live-Modus fragt das Büro selbst neu ab",
+    "refresh": "Klicken, um jetzt zu aktualisieren",
+    "updated": "aktualisiert um {time}",
+    "days": [
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa",
+      "So"
+    ]
+  },
+  "zones": {
+    "coordination": "Koordination",
+    "planning": "Planung",
+    "building": "Entwicklung",
+    "control": "Kontrolle"
+  },
+  "phases": {
+    "analysis": "Analyse",
+    "design": "Design",
+    "implementation": "Umsetzung",
+    "testing": "Tests",
+    "security": "Sicherheit",
+    "review": "Review",
+    "documentation": "Dokumentation",
+    "delivery": "Übergabe"
+  }
+}

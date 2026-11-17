@@ -1,7 +1,8 @@
-# se genera al ejecutar la oficina
-oficina.html
+# generated when the office runs
+office.html
+office.*.html
 *.tmp
-# datos personales de cada computadora
-limites.json
-avatares/
+# personal data of each computer
+usage.json
+avatars/
 __pycache__/

@@ -1,0 +1,181 @@
+{
+  "title": "Oficina de agentes",
+  "theme": "Cambiar entre modo claro y nocturno",
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "number": {
+    "decimal": ",",
+    "thousands": "."
+  },
+  "status": {
+    "working": "Trabajando",
+    "paused": "En pausa",
+    "blocked": "Bloqueado",
+    "idle": "Sin tarea"
+  },
+  "phase_status": {
+    "done": "Listo",
+    "working": "En curso",
+    "paused": "En pausa",
+    "blocked": "Bloqueado",
+    "pending": "Pendiente"
+  },
+  "assignment": {
+    "working": "en curso",
+    "paused": "detenido sin terminar",
+    "idle": "terminado"
+  },
+  "counter": {
+    "aria": "Resumen de estados",
+    "working": "{n} trabajando",
+    "paused": "{n} en pausa",
+    "blocked_one": "{n} bloqueado",
+    "blocked_many": "{n} bloqueados",
+    "idle": "{n} sin tarea"
+  },
+  "agent": {
+    "no_task_assigned": "Sin tarea asignada",
+    "no_task": "Sin tarea",
+    "last": "Última:",
+    "since": " · desde {date}",
+    "history": "Historial",
+    "no_history": "Sin historial.",
+    "close": "Cerrar",
+    "whole_module": "Módulo completo",
+    "no_record": "sin registro",
+    "pending": "pendiente"
+  },
+  "source": {
+    "board": "tablero",
+    "session": "sesión de Claude Code",
+    "subagent": "subagente de esta sesión",
+    "log": "{file} · Dónde quedé",
+    "board_agent": "tablero · {agent}"
+  },
+  "time": {
+    "working": "Trabajando hace {d}",
+    "paused": "En pausa desde hace {d}",
+    "blocked": "Bloqueado desde hace {d}",
+    "idle": "Última tarea hace {d}",
+    "other": "Hace {d}",
+    "under_a_minute": "menos de 1 min",
+    "days": "{n} d",
+    "hours": "{n} h",
+    "minutes": "{n} min",
+    "no_records": "Sin registros en el tablero"
+  },
+  "time_prefix": {
+    "waiting": "Esperando tu respuesta hace {d}",
+    "activity": "Última actividad hace {d}"
+  },
+  "tokens": {
+    "manual": "≈ {n} tokens",
+    "manual_tooltip": "Anotado a mano al generar",
+    "session": "contexto {context} · salida {output}",
+    "session_tooltip": "Contexto de la última respuesta y total de salida, leídos de la sesión",
+    "history": "contexto {context} · salida {output} tokens"
+  },
+  "session": {
+    "this_session": "Esta sesión",
+    "waiting_reply": "Esperando tu respuesta",
+    "no_assignments": "Sin encargos en esta sesión",
+    "start": "Inicio de la sesión «{title}»",
+    "subagents_total": "{n} subagentes en total",
+    "new": "Sesión nueva",
+    "in_terminal": "en la terminal",
+    "in_vscode": "en VS Code",
+    "notice": "Sesión de Claude Code · {n} subagentes · última actividad {time}. {coordinator} es la conversación principal; cada escritorio, sus subagentes.",
+    "waiting_question": "«{title}»: {coordinator} te dejó una pregunta y necesita tu respuesta para seguir.",
+    "waiting_plan": "«{title}»: {coordinator} espera que apruebes su plan para seguir.",
+    "waiting_turn": "«{title}»: {coordinator} terminó lo que estaba haciendo y espera tu respuesta para seguir.",
+    "stage_in_progress": "en curso en esta sesión",
+    "stage_done": "hecha en esta sesión",
+    "phase_in_progress": "en curso: {task}"
+  },
+  "menu": {
+    "viewing": "Viendo",
+    "active_sessions": "Sesiones activas · {n}",
+    "no_sessions": "Sin sesiones activas",
+    "one_session": "{n} sesión",
+    "many_sessions": "{n} sesiones",
+    "waiting_tooltip": "Sesiones esperando tu respuesta",
+    "choose": "Elegir sesión",
+    "waiting_reply": "espera tu respuesta",
+    "working": "{n} trabajando",
+    "no_activity": "sin actividad",
+    "no_plan_file": " · sin ficha",
+    "subagents_tooltip": "{title} · {n} subagentes",
+    "board": "Tablero de la bitácora",
+    "board_detail": "lo anotado en tablero.md"
+  },
+  "panel": {
+    "agents": "Agentes",
+    "phases": "Fases del proceso",
+    "stages": "Etapas del cambio",
+    "plan_file": "Ficha:",
+    "no_plan_file": "Esta sesión no usa ninguna ficha de la bitácora.",
+    "waiting": "Esperando tu respuesta",
+    "nobody_waiting": "Nadie está esperando tu respuesta.",
+    "logged": "Anotado en la bitácora"
+  },
+  "room": {
+    "aria": "Sala de la oficina",
+    "working_now": "Trabajando ahora · {n}",
+    "bubble": "Trabajando",
+    "plan_title": "PLAN DEL CAMBIO",
+    "no_plan": "Sin plan por etapas",
+    "stage": "Etapa {n}",
+    "stage_short": "E{n}",
+    "waiting": "¡Esperando tu respuesta!",
+    "waiting_many": "¡Esperando tu respuesta! · {n}",
+    "waiting_aria": "Mesa de decisiones: {n} pendientes",
+    "waiting_tooltip": "{coordinator} espera tu respuesta para avanzar",
+    "table": "Mesa de reuniones",
+    "table_waiting": "Mesa de reuniones: {n} decisiones esperando su respuesta",
+    "now": "AHORA",
+    "character": "Personaje de bloques: {role}"
+  },
+  "plan": {
+    "title": "Plan del cambio",
+    "open": "Ver el plan completo"
+  },
+  "usage": {
+    "five_hour": "5 horas",
+    "week": "Semana",
+    "resets": "se reinicia {when}",
+    "already_reset": "ya se reinició",
+    "tooltip": "{name}: {pct}% usado · {resets}",
+    "stale": "Dato de hace más de {min} min: la oficina lo consulta sola mientras está en vivo",
+    "refresh": "Clic para actualizar ahora",
+    "updated": "actualizado a las {time}",
+    "days": [
+      "lun",
+      "mar",
+      "mié",
+      "jue",
+      "vie",
+      "sáb",
+      "dom"
+    ]
+  },
+  "zones": {
+    "coordination": "Coordinación",
+    "planning": "Planificación",
+    "building": "Construcción",
+    "control": "Control"
+  },
+  "phases": {
+    "analysis": "Análisis",
+    "design": "Diseño",
+    "implementation": "Implementación",
+    "testing": "Pruebas",
+    "security": "Seguridad",
+    "review": "Revisión",
+    "documentation": "Documentación",
+    "delivery": "Entrega"
+  }
+}

@@ -1,0 +1,18 @@
+[project]
+name = "agents-office"
+version = "2.0.0"
+description = "An isometric pixel-art view of what your Claude Code agents are doing"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+# pycodestyle, pyflakes, PEP 8 naming, import order, bugbear, simplifications
+select = ["E", "W", "F", "N", "I", "B", "SIM", "UP"]
